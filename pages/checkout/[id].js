@@ -1,10 +1,10 @@
 import Layout from "../../components/layout";
 import React, { useState, useEffect } from "react";
-import Link from 'next/link'
+import Link from "next/link";
 import { getAllProductIds, getProductData } from "../../lib/products";
 export const config = { amp: true };
 export default function Checkout({ postData }) {
-  console.log(postData, "findout");
+  // console.log(postData, "findout");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [address1, setAddress1] = useState("");
@@ -115,6 +115,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   // let newId=JSON.stringify()
+  console.log(params);
 
   const postData = await getProductData(params.id);
 

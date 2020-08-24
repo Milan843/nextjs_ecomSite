@@ -33,29 +33,40 @@ export default function Home({ allProductdata }) {
       </div>
       <section>
         <h2>Product List</h2>
-        <ul>
-          {productSelected.map(({ id, price, title, category, image }) => (
-            <div class="card mb-3">
-              <img
-                class="card-img-top"
-                src={image}
-                alt="Card image cap"
-                height="400"
-                width="500"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Category: {category}</h5>
-                <p class="card-text">Title: {title}</p>
-                <p class="card-text">
-                  <small class="text-muted">Price: {price}</small>
-                </p>
-                <Link href="/products/[id]" as={`/products/${id}`}>
-                  <a class="btn btn-primary">View Product</a>
-                </Link>
-              </div>
-            </div>
-          ))}
-        </ul>
+
+        <div class="row">
+          {productSelected.map(
+            ({ id, price, title, category, image }, index) => (
+              <>
+                <div class="col">
+                  <div class="card mb-3">
+                    <img
+                      class="card-img-top"
+                      src={image}
+                      alt="Card image cap"
+                      height="400"
+                      width="500"
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title">Category: {category}</h5>
+                      <p class="card-text">Title: {title}</p>
+                      <p class="card-text">
+                        <small class="text-muted">Price: {price}</small>
+                      </p>
+                      <Link href="/products/[id]" as={`/products/${id}`}>
+                        <a class="btn btn-primary">View Product</a>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+
+                {productSelected.map((s, i) => i * 3 - 1).includes(index) ? (
+                  <div class="w-100"></div>
+                ) : null}
+              </>
+            )
+          )}
+        </div>
       </section>
     </Layout>
   );
