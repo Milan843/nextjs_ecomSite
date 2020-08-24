@@ -21,7 +21,7 @@ export default function Home({ allProductdata }) {
       <div className="search-bar ui segment">
         <form onSubmit={onFormSubmit} className="ui-form">
           <div className="field">
-            <label>Select an product category </label>
+            <label>Select an product category (like:-electronics,men clothing,jewelery etc)</label>
             <br />
             <input
               type="text"
